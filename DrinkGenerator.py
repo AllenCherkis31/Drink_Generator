@@ -1,33 +1,54 @@
-
-
-
+# Imports
 import random
 
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               here              
-conName=['C H U N K Y','S M O O T H','P I S S E D - O F F','F U C K I N G','S C U M M Y','P O R T L Y','D A N K','T R A G I C','S A N D Y','S L U T T Y','P I N K','T H E  H U G E','M U S T Y','I N S T A G R A M  F A M O U S','R E F R E S H I N G','T A N G Y','B E W I L D E R E D','I T C H Y','M A S S I V E','P U R P L E','M U S H Y','S T A N K','N I C E','B L A C K','B L U E','W H I T E','E L','L I G H T','H E A V Y','D A R K','F R E N C H','K E N T U C K Y','T R I P L E','D O U B L E','S A S S Y','P R E T E N T I O U S']
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                           here 
-nickname=['G O A T','O C E A N','P I C K L E','T I T T Y','A S S A S S I N','M O L E R A T','S T I N G R A Y','a n d  P R O U D','B E A N','W I Z A R D','L E M O N','B U C K S H O T','T A T E R  T O T','B E A C H','B I T C H','C O R N  W O R M','P R I N C E','M A S T A D O N','A R M P I T','S K I F F','S O U R','B O N G O','and H A I R Y','D I R T','R U S S I A N','L A D Y','S A I L O R','Z O M B I E','L A G O O N','S M A S H','T I C K L E  P A R T Y','C O W B O Y','P I R A T E','M O N K E Y','C H U N G U S']
 
-bitters=['Orange','Angostura','Plum','Lavender','Peach','Apple Pie','Jelly Bean','Butterscotch']
-
-liquor=['Bourbon','Rye','Vodka','Everclear','Moonshine','Tequila','Gin','Scotch']
-
-extra=['Cherry','Orange Peel','Vanilla Bean','Lime','Lemon','Bacon','Cola','Ginger Beer','Milk','Someone put their cigar out in it','Mint']
+'''
+The get_ingredients function reads five text files and appends the contents of each into individual lists.
+These lists are stored within dictionary 'dict_of_lists'
+'''
 
 
+def get_ingredients(adjective_text_file, noun_text_file, bitters_text_file, liquor_text_file, extra_text_file):
+
+    # List of text file names
+    text_file_names = [adjective_text_file, noun_text_file, bitters_text_file, liquor_text_file, extra_text_file]
+
+    # Empty dictionary which will store each list
+    dict_of_lists = {}
+
+    # For each file name
+    for i in text_file_names:
+        # Clear textfile_list
+        textfile_list = []
+        # Open/read file
+        for word in open(i):
+            # Remove newline characters
+            textfile_list.append(word.rstrip('\n'))
+        # Add textfile_list to dictionary
+        dict_of_lists[text_file_names.index(i)] = textfile_list
+
+    return dict_of_lists
+
+
+# Call 'get_lists' function and provide five text file names
+word_lists = get_ingredients('adjectives.txt', 'nouns.txt', 'bitters.txt', 'liquor.txt', 'extra.txt')
+
+# Assign lists to respective variables.
+adjective = word_lists[0]
+noun = word_lists[1]
+bitters = word_lists[2]
+liquor = word_lists[3]
+extra = word_lists[4]
 
 
 def randName():
     w1 = random.randint(1,36)
     return w1
 
-
-
-def randNickname():
+def randnoun():
 
     w3 = random.randint(1,35)
     return w3
-
 
 def randDrink():
     d1 = random.randint(1,3)
@@ -121,192 +142,192 @@ def printRandDrink(d1):
 
 
 
-def printConName(w1,w3):
+def printadjective(w1,w3):
         
-        global conName
-        global nickname
+        global adjective
+        global noun
 
         
         if w1 == 1:
-                print (conName[0])
+                print (adjective[0])
         elif w1 == 2:
-                print (conName[1])
+                print (adjective[1])
         elif w1 == 3:
-                print (conName[2])
+                print (adjective[2])
         elif w1 == 4:
-                print (conName[3])
+                print (adjective[3])
         elif w1 == 5:
-                print (conName[4])
+                print (adjective[4])
         elif w1 == 6:
-                print (conName[5])
+                print (adjective[5])
         elif w1 == 7:
-                print (conName[6])
+                print (adjective[6])
         elif w1 == 8:
-                print (conName[7])
+                print (adjective[7])
         elif w1 == 9:
-                print (conName[8])
+                print (adjective[8])
         elif w1 == 10:
-                print (conName[9])
+                print (adjective[9])
         elif w1 == 11:
-                print (conName[10])
+                print (adjective[10])
         elif w1 == 12:
-                print (conName[11])
+                print (adjective[11])
         elif w1 == 13:
-                print (conName[12])
+                print (adjective[12])
         elif w1 == 14:
-                print (conName[13])
+                print (adjective[13])
         elif w1 == 15:
-                print (conName[14])
+                print (adjective[14])
         elif w1 == 16:
-                print (conName[15])
+                print (adjective[15])
         elif w1 == 17:
-                print (conName[16])
+                print (adjective[16])
         elif w1 == 18:
-                print (conName[17])
+                print (adjective[17])
         elif w1 == 19:
-                print (conName[18])
+                print (adjective[18])
         elif w1 == 20:
-                print (conName[19])
+                print (adjective[19])
         elif w1 == 21:
-                print (conName[20])
+                print (adjective[20])
         elif w1 == 22:
-                print (conName[21])
+                print (adjective[21])
         elif w1 == 23:
-                print (conName[22])
+                print (adjective[22])
         elif w1 == 24:
-                print (conName[23])
+                print (adjective[23])
         elif w1 == 25:
-                print (conName[24])
+                print (adjective[24])
         elif w1 == 26:
-                print (conName[25])
+                print (adjective[25])
         elif w1 == 27:
-                print (conName[26])
+                print (adjective[26])
         elif w1 == 28:
-                print (conName[27])
+                print (adjective[27])
         elif w1 == 29:
-                print (conName[28])
+                print (adjective[28])
         elif w1 == 30:
-                print (conName[29])
+                print (adjective[29])
         elif w1 == 31:
-                print (conName[30])
+                print (adjective[30])
         elif w1 == 32:
-                print (conName[31])
+                print (adjective[31])
         elif w1 == 33:
-                print (conName[32])
+                print (adjective[32])
         elif w1 == 34:
-                print (conName[33])
+                print (adjective[33])
         elif w1 == 35:
-                print (conName[34])
+                print (adjective[34])
         elif w1 == 36:
-                print (conName[35])
+                print (adjective[35])
                 
         if w3 == 1:
-                print (nickname[0])
+                print (noun[0])
         elif w3 == 2:
-                print (nickname[1])
+                print (noun[1])
         elif w3 == 3:
-                print (nickname[2])
+                print (noun[2])
         elif w3 == 4:
-                print (nickname[3])
+                print (noun[3])
         elif w3 == 5:
-                print (nickname[4])
+                print (noun[4])
         elif w3 == 6:
-                print (nickname[5])
+                print (noun[5])
         elif w3 == 7:
-                print (nickname[6])
+                print (noun[6])
         elif w3 == 8:
-                print (nickname[7])
+                print (noun[7])
         elif w3 == 9:
-                print (nickname[8])
+                print (noun[8])
         elif w3 == 10:
-                print (nickname[9])
+                print (noun[9])
         elif w3 == 11:
-                print (nickname[10])
+                print (noun[10])
         elif w3 == 12:
-                print (nickname[11])
+                print (noun[11])
         elif w3 == 13:
-                print (nickname[12])
+                print (noun[12])
         elif w3 == 14:
-                print (nickname[13])
+                print (noun[13])
         elif w3 == 15:
-                print (nickname[14])
+                print (noun[14])
         elif w3 == 16:
-                print (nickname[15])
+                print (noun[15])
         elif w3 == 17:
-                print (nickname[16])
+                print (noun[16])
         elif w3 == 18:
-                print (nickname[17])
+                print (noun[17])
         elif w3 == 19:
-                print (nickname[18])
+                print (noun[18])
         elif w3 == 20:
-                print (nickname[19])
+                print (noun[19])
         elif w3 == 21:
-                print (nickname[20])
+                print (noun[20])
         elif w3 == 22:
-                print (nickname[21])
+                print (noun[21])
         elif w3 == 23:
-                print (nickname[22])
+                print (noun[22])
         elif w3 == 24:
-                print (nickname[23])
+                print (noun[23])
         elif w3 == 25:
-                print (nickname[24])
+                print (noun[24])
         elif w3 == 26:
-                print (nickname[25])
+                print (noun[25])
         elif w3 == 27:
-                print (nickname[26])
+                print (noun[26])
         elif w3 == 28:
-                print (nickname[27])
+                print (noun[27])
         elif w3 == 29:
-                print (nickname[28])
+                print (noun[28])
         elif w3 == 30:
-                print (nickname[29])
+                print (noun[29])
         elif w3 == 31:
-                print (nickname[30])
+                print (noun[30])
         elif w3 == 32:
-                print (nickname[31])
+                print (noun[31])
         elif w3 == 33:
-                print (nickname[32])
+                print (noun[32])
         elif w3 == 34:
-                print (nickname[33])
+                print (noun[33])
         elif w3 == 35:
-                print (nickname[34])
+                print (noun[34])
                 
                 
-#picks random nickname for user
+#picks random noun for user
 def userNick(w4):
       
     if w4 == 1:
-            return (nickname[0])
+            return (noun[0])
     elif w4 == 2:
-            return (nickname[1])
+            return (noun[1])
     elif w4 == 3:
-            return (nickname[2])
+            return (noun[2])
     elif w4 == 4:
-            return (nickname[3])
+            return (noun[3])
     elif w4 == 5:
-            return (nickname[4])
+            return (noun[4])
     elif w4 == 6:
-            return (nickname[5])
+            return (noun[5])
     elif w4 == 7:
-            return (nickname[6])
+            return (noun[6])
     elif w4 == 8:
-            return (nickname[7])
+            return (noun[7])
     elif w4 == 9:
-            return (nickname[8])
+            return (noun[8])
     elif w4 == 10:
-            return (nickname[9])
+            return (noun[9])
     elif w4 == 11:
-            return (nickname[10])
+            return (noun[10])
     elif w4 == 12:
-            return (nickname[11])
+            return (noun[11])
     elif w4 == 13:
-            return (nickname[12])
+            return (noun[12])
     elif w4 == 14:
-            return (nickname[13])
+            return (noun[13])
     elif w4 == 15:
-            return (nickname[14])
+            return (noun[14])
     elif w4 == 16:
-            return (nickname[15])
+            return (noun[15])
     
 
 def theBit(b1):
@@ -442,7 +463,7 @@ def printStuff(l1,b1,i1):
 def nameComputer():
 
     name1 = randName()
-    name3 = randNickname()
+    name3 = randnoun()
     drinkPrint = randDrink()
     liq = randLiq()
     bit = randBit()
@@ -458,7 +479,7 @@ __________________
 
     print ('\n')
     print ('\n')
-    printConName(name1,name3)
+    printadjective(name1,name3)
 
     printRandDrink(drinkPrint)
 
@@ -530,7 +551,16 @@ def gameOptions():
     print ("|        Enter \'1\' to begin            |")
     print ("|  Enter \'2\' to talk with bartender    |")
     print ("|         Enter \'3\' to quit            |")
-    print ("|______________________________________|")                              
+    print ("|______________________________________|")
+
+
+class Main:
+
+    def __init__(self, start, option):
+        self.start = start
+        self.option = option
+
+
                 
 def mainScreen():
     printIntro()

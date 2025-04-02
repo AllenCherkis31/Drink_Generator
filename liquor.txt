@@ -1,0 +1,8 @@
+Bourbon
+Rye
+Vodka
+Everclear
+Moonshine
+Tequila
+Gin
+Scotch

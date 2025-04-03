@@ -3,201 +3,195 @@ import random
 import re
 import os
 
-'''
-The get_ingredients function reads five text files and appends the contents of each into individual lists.
-These lists are stored within dictionary 'dict_of_lists'
-'''
 
 
-def get_ingredients(adjective_text_file, noun_text_file, bitters_text_file, liquor_text_file, extra_text_file):
+class DrinkGenerator:
 
-    # List of text file names
-    text_file_names = [adjective_text_file, noun_text_file, bitters_text_file, liquor_text_file, extra_text_file]
+    '''
+    Function get_ingredients reads five text files and appends the contents of each into individual lists.
+    These lists are stored within dictionary 'dict_of_lists'
+    '''
 
-    # Empty dictionary which will store each list
-    dict_of_lists = {}
+    def get_ingredients(adjective_text_file, noun_text_file, bitters_text_file, liquor_text_file, extra_text_file):
 
-    # For each file name
-    for i in text_file_names:
-        # Clear textfile_list
-        textfile_list = []
-        # Open/read file
-        for word in open(i):
-            # Remove newline characters
-            textfile_list.append(word.rstrip('\n'))
-        # Add textfile_list to dictionary
-        dict_of_lists[text_file_names.index(i)] = textfile_list
+        # List of text file names
+        text_file_names = [adjective_text_file, noun_text_file, bitters_text_file, liquor_text_file, extra_text_file]
 
-    return dict_of_lists
+        # Empty dictionary which will store each list
+        dict_of_lists = {}
 
+        # For each file name
+        for i in text_file_names:
+            # Clear textfile_list
+            textfile_list = []
+            # Open/read file
+            for word in open(i):
+                # Remove newline characters
+                textfile_list.append(word.rstrip('\n'))
+            # Add textfile_list to dictionary
+            dict_of_lists[text_file_names.index(i)] = textfile_list
 
-# Call 'get_lists' function and provide five text file names
-word_lists = get_ingredients('adjectives.txt', 'nouns.txt', 'bitters.txt', 'liquor.txt', 'extra.txt')
-
-# Assign lists to respective variables.
-adjective = word_lists[0]
-noun = word_lists[1]
-bitters = word_lists[2]
-liquor = word_lists[3]
-extra = word_lists[4]
+        return dict_of_lists
 
 
-def printRandDrink(d1):
-    global randDrink
+    # Call 'get_lists' function and provide five text file names
+    word_lists = get_ingredients('adjectives.txt', 'nouns.txt', 'bitters.txt', 'liquor.txt', 'extra.txt')
+
+    # Assign lists to respective variables.
+    adjective = word_lists[0]
+    noun = word_lists[1]
+    bitters = word_lists[2]
+    liquor = word_lists[3]
+    extra = word_lists[4]
 
 
-    if d1 == 1:
-        print ('')
-        print ('                /_O_\                ')
-        print ('      __________| 0 |___________     ')
-        print ('    /            \*/            \    ')
-        print ('   |\            ***            /|   ') 
-        print ('   | \____________*____________/ |   ') 
-        print ('   | \                           |   ')
-        print ('   |  \\\                         |   ')
-        print ('   |    \\\                       |   ')
-        print ('   |      \\\                     |   ')
-        print ('   |        \\\                   |   ') 
-        print ('   |\         \\\                 |   ') 
-        print ('   | \\\         \\\               |   ')
-        print ('   |   \\\         \\\             |   ')
-        print ('   |     \\\         \\\           |   ') 
-        print ('   |       \\\         \\\         |   ') 
-        print ('   |         \\\         \\\       |   ')
-        print ('   |           \\\         \\\     |   ')
-        print ('   |             \\\         \\\   |   ')
-        print ('   |               \\\         \\\ |   ')
-        print ('   |                 \\\         \\|  ') 
-        print ('   |                   \\\        |   ') 
-        print ('   /_____________________\\\______\   ')
+    def printRandDrink(d1):
 
-    if d1 == 2:
-        print ('                                       ')
-        print ('                             _-/_     ')
-        print ('                            |{} |      ')
-        print ('                            \___/      ') 
-        print ('                            /         ') 
-        print ('         __________________/__          ')
-        print ('        \ \_______________/_/ /         ')
-        print ('         \                   /          ')
-        print ('          \ ############### /           ') 
-        print ('           \ ############# /            ') 
-        print ('            \ ########### /             ')
-        print ('             \ ######### /              ')
-        print ('              \ ####### /               ')
-        print ('               \ ##### /                ')
-        print ('                \ ### /                 ') 
-        print ('                 \ # /                  ') 
-        print ('                  \ /                    ')
-        print ('                  | |                    ')
-        print ('                  | |                    ') 
-        print ('                  | |                    ') 
-        print ('                  | |                    ')
-        print ('                  | |                    ')
-        print ('                  | |                    ')
-        print ('                  | |                    ')
-        print ('                  | |                    ') 
-        print ('                  | |                  ') 
-        print ('     _-_-_-_-_-_-_|_|_-_-_-_-_-_-_     ')
+        if d1 == 1:
+            print ('')
+            print ('                /_O_\                ')
+            print ('      __________| 0 |___________     ')
+            print ('    /            \*/            \    ')
+            print ('   |\            ***            /|   ') 
+            print ('   | \____________*____________/ |   ') 
+            print ('   | \                           |   ')
+            print ('   |  \\\                         |   ')
+            print ('   |    \\\                       |   ')
+            print ('   |      \\\                     |   ')
+            print ('   |        \\\                   |   ') 
+            print ('   |\         \\\                 |   ') 
+            print ('   | \\\         \\\               |   ')
+            print ('   |   \\\         \\\             |   ')
+            print ('   |     \\\         \\\           |   ') 
+            print ('   |       \\\         \\\         |   ') 
+            print ('   |         \\\         \\\       |   ')
+            print ('   |           \\\         \\\     |   ')
+            print ('   |             \\\         \\\   |   ')
+            print ('   |               \\\         \\\ |   ')
+            print ('   |                 \\\         \\|  ') 
+            print ('   |                   \\\        |   ') 
+            print ('   /_____________________\\\______\   ')
 
-    if d1 == 3:
+        if d1 == 2:
+            print ('                                       ')
+            print ('                             _-/_     ')
+            print ('                            |{} |      ')
+            print ('                            \___/      ') 
+            print ('                            /         ') 
+            print ('         __________________/__          ')
+            print ('        \ \_______________/_/ /         ')
+            print ('         \                   /          ')
+            print ('          \ ############### /           ') 
+            print ('           \ ############# /            ') 
+            print ('            \ ########### /             ')
+            print ('             \ ######### /              ')
+            print ('              \ ####### /               ')
+            print ('               \ ##### /                ')
+            print ('                \ ### /                 ') 
+            print ('                 \ # /                  ') 
+            print ('                  \ /                    ')
+            print ('                  | |                    ')
+            print ('                  | |                    ') 
+            print ('                  | |                    ') 
+            print ('                  | |                    ')
+            print ('                  | |                    ')
+            print ('                  | |                    ')
+            print ('                  | |                    ')
+            print ('                  | |                    ') 
+            print ('                  | |                  ') 
+            print ('     _-_-_-_-_-_-_|_|_-_-_-_-_-_-_     ')
 
-        print ('                                       ') 
-        print ('       |\                       /|        ')
-        print ('       ||#######################||         ')
-        print ('       ||##############------###||         ') 
-        print ('       ||#############|      |##||         ')
-        print ('       ||#############|      |##||         ')
-        print ('       ||##------#####|______|##||         ') 
-        print ('       ||#|      |##############||         ')
-        print ('       ||#|      |##############||         ')
-        print ('       ||#|______|#######--#####||         ') 
-        print ('       ||###############/^^\####||         ')
-        print ('       ||################--#####||         ')
-        print ('        -------------------------         ')
+        if d1 == 3:
+
+            print ('                                       ') 
+            print ('       |\                       /|        ')
+            print ('       ||#######################||         ')
+            print ('       ||##############------###||         ') 
+            print ('       ||#############|      |##||         ')
+            print ('       ||#############|      |##||         ')
+            print ('       ||##------#####|______|##||         ') 
+            print ('       ||#|      |##############||         ')
+            print ('       ||#|      |##############||         ')
+            print ('       ||#|______|#######--#####||         ') 
+            print ('       ||###############/^^\####||         ')
+            print ('       ||################--#####||         ')
+            print ('        -------------------------         ')
+            
+
+
+    # Select name from lists using random integers.
+    def printName(w1,w3):
+            
+            print(DrinkGenerator.adjective[w1])
+            print(DrinkGenerator.noun[w3])
         
 
+    def printStuff(l1,b1,i1):
 
+            print("Liquor: " + DrinkGenerator.liquor[l1])
+            print("Bitters: " + DrinkGenerator.bitters[b1])
+            print("Other: " + DrinkGenerator.extra[i1])
+            
+            
+    # Print results to screen.         
+    def generateDrink(self):
 
-def printadjective(w1,w3):
-        
-        global adjective
-        global noun
+        name1 = DrinkGenerator.randName(self)
+        name3 = DrinkGenerator.randNoun(self)
+        drinkPrint = DrinkGenerator.randDrink(self)
+        liq = DrinkGenerator.randLiq(self)
+        bit = DrinkGenerator.randBit(self)
+        ing = DrinkGenerator.randEx(self)
 
-        print(adjective[w1])
-        print(noun[w3])
-    
-
-def printStuff(l1,b1,i1):
-        
-        global bitters
-        global liquor
-        global extra
-
-        print("Liquor: " + liquor[l1])
-        print("Bitters: " + bitters[b1])
-        print("Other: " + extra[i1])
-        
-        
-        
-def generateDrink():
-
-    name1 = RandomNumber.randName()
-    name3 = RandomNumber.randNoun()
-    drinkPrint = RandomNumber.randDrink()
-    liq = RandomNumber.randLiq()
-    bit = RandomNumber.randBit()
-    ing = RandomNumber.randEx()
-
-    # Clearing the Screen
-    os.system('cls')
-
-
-    print ("""
-
-And your drink is...
-__________________
-""")
-
-
-    print ('\n')
-    print ('\n')
-    printadjective(name1,name3)
-
-    printRandDrink(drinkPrint)
-
-    print ('\n')
-    print ('\n')
-
-    print ("I N G R E D I E N T S")
-    print ("_____________________")
-    print ('\n')
-    printStuff(liq,bit,ing)
-
-    
-
-    
-
-
-def printIntro():
         # Clearing the Screen
         os.system('cls')
 
-        print ('\n')
-        print ('******************************************************************')
-        print (')*****************************************************************(')
-        print (')**|            ||                               ||            |**(')
-        print (')**|            ||                               ||            |**(')
-        print (')**|            ||                               ||            |**(')
-        print (')**|            ||                               ||            |**(')
-        print (')**|            /\                               /\            |**(')
-        print (')**|           /()\                             /()\           |**(')
-        print (')**|          / -- \                           / -- \          |**(')
-        print (')**|                                                           |**(')
-        print (')**|                                                           |**(')
-        print (')**|                                                           |**(')
-        print (')**|                                                           |**(')
+
         print ("""
+
+    And your drink is...
+    __________________
+    """)
+
+
+        print ('\n')
+        print ('\n')
+        DrinkGenerator.printName(name1,name3)
+
+        DrinkGenerator.printRandDrink(drinkPrint)
+
+        print ('\n')
+        print ('\n')
+
+        print ("I N G R E D I E N T S")
+        print ("_____________________")
+        print ('\n')
+        DrinkGenerator.printStuff(liq,bit,ing)
+
+        
+
+        
+
+    # Print intro art.
+    def printIntro(self):
+            # Clearing the Screen
+            os.system('cls')
+
+            print ('\n')
+            print ('******************************************************************')
+            print (')*****************************************************************(')
+            print (')**|            ||                               ||            |**(')
+            print (')**|            ||                               ||            |**(')
+            print (')**|            ||                               ||            |**(')
+            print (')**|            ||                               ||            |**(')
+            print (')**|            /\                               /\            |**(')
+            print (')**|           /()\                             /()\           |**(')
+            print (')**|          / -- \                           / -- \          |**(')
+            print (')**|                                                           |**(')
+            print (')**|                                                           |**(')
+            print (')**|                                                           |**(')
+            print (')**|                                                           |**(')
+            print ("""
                               _---_
                              /     \\     
                             |  ^ ^  |    
@@ -207,138 +201,137 @@ def printIntro():
                             /  >@< \\    
                            /        \\
                           /          \\                                           """)
-        print ('        _________________/____________\_____________________       ')
-        print ('       /  .      ,   |  |         .    _                ,   \       ')
-        print ('      /     |##|     |__|             |?|   ,      \#/       \      ')
-        print ('     / ,    |__|            ,       . |_|         . |         \     ')
-        print ('    /_______________________________________________-__________\    ')
-        print ('   |                                                           |    ')
-        print ('   |                ------------------------                   |    ') 
-        print ('   |                     D  R  I  N  K                         |    ')
-        print ('   |                                                           |    ') 
-        print ('   |                   G E N E R A T O R                       |    ') 
-        print ('   |                 -----------------------                   |    ') 
-        print ('   |                                                           |    ') 
-        print ('   |                  PRESS ENTER TO START                     |    ')
-        print ('   |                                                           |    ') 
-        print ('   |                                                           |    ')
-        print ('   ************************************************************    ')
-        print ('\n')
+            print ('        _________________/____________\_____________________       ')
+            print ('       /  .      ,   |  |         .    _                ,   \       ')
+            print ('      /     |##|     |__|             |?|   ,      \#/       \      ')
+            print ('     / ,    |__|            ,       . |_|         . |         \     ')
+            print ('    /_______________________________________________-__________\    ')
+            print ('   |                                                           |    ')
+            print ('   |                ------------------------                   |    ') 
+            print ('   |                     D  R  I  N  K                         |    ')
+            print ('   |                                                           |    ') 
+            print ('   |                   G E N E R A T O R                       |    ') 
+            print ('   |                 -----------------------                   |    ') 
+            print ('   |                                                           |    ') 
+            print ('   |                  PRESS ENTER TO START                     |    ')
+            print ('   |                                                           |    ') 
+            print ('   |                                                           |    ')
+            print ('   ************************************************************    ')
+            print ('\n')
 
+    # Display game options.
+    def gameOptions(self):
 
-def gameOptions():
-
-    print ("_______________________________________")
-    print ("|                                      |")
-    print ("|     Welcome to Drink Generator       |")
-    print ("|                                      |")
-    print ("|        Enter \'1\' to begin            |")
-    print ("|  Enter \'2\' to talk with bartender    |")
-    print ("|         Enter \'3\' to quit            |")
-    print ("|______________________________________|")
-
-
-
-# Sanitizes user input.
-def sanitize_input(input_string):
-    # Allow alphanumeric characters and spaces
-    sanitized = re.sub(r'[^a-zA-Z0-9\s]', '', input_string)
-    return sanitized
+        print ("_______________________________________")
+        print ("|                                      |")
+        print ("|     Welcome to Drink Generator       |")
+        print ("|                                      |")
+        print ("|        Enter \'1\' to begin            |")
+        print ("|  Enter \'2\' to talk with bartender    |")
+        print ("|         Enter \'3\' to quit            |")
+        print ("|______________________________________|")
 
 
 
-# Prints intro and handles user input.                
-def mainScreen():
-    printIntro()
-    
-    q = sanitize_input(input("><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><"))
-    
-    while q != "":
-        q = sanitize_input(input("Press enter to play"))
-                
-    option = 2
-
-    gameOptions()
-
-    option = sanitize_input(input(""))
+    # Sanitizes user input.
+    def sanitize_input(input_string):
+        # Allow alphanumeric characters and spaces
+        sanitized = re.sub(r'[^a-zA-Z0-9\s]', '', input_string)
+        return sanitized
 
 
-    while option != '1' and option != '2' and option != '3':
-        option = sanitize_input(input("Input invalid. Please enter 1, 2, or 3."))
 
+    # Prints intro and handles user input.                
+    def mainScreen(self):
 
-    if option == '1':
-        playGame()
-
-    elif option == '2':
-        instructions()
-        o = sanitize_input(input("Press enter to return to main screen"))
-        while o != "":
-            o = sanitize_input(input("Press enter to return to main screen"))
-        mainScreen()
-
-    elif option == '3':
-        print ("Don't let the door hit yer ass on the way out.")
-                    
+        DrinkGenerator.printIntro(self)
         
+        q = DrinkGenerator.sanitize_input(input("><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><"))
+        
+        while q != "":
+            q = DrinkGenerator.sanitize_input(input("Press enter to play"))
+                    
+        option = 2
 
-    
-def instructions():
-    print ("""
+        DrinkGenerator.gameOptions(self)
 
-Welcome to the Drink Generator! Simply follow the on-screen instructions to
-create fantastic, unique drinks. Have fun and go f@#$ yourself!
-
-    """)
+        option = DrinkGenerator.sanitize_input(input(""))
 
 
-    
-# Generates a drink and then either restarts or exits the program, depending on user action.
-def playGame():
+        while option != '1' and option != '2' and option != '3':
+            option = DrinkGenerator.sanitize_input(input("Input invalid. Please enter 1, 2, or 3."))
 
-        generateDrink()
 
-        pf = sanitize_input(input("\nDo you want to try again? (y/n)"))
+        if option == '1':
+            DrinkGenerator.playGame(self)
 
-        while pf != 'y' and pf != 'n':
-            pf = sanitize_input(input("\nDo you want to try again? (y/n)"))
+        elif option == '2':
+            DrinkGenerator.instructions(self)
+            o = DrinkGenerator.sanitize_input(input("Press enter to return to main screen"))
+            while o != "":
+                o = DrinkGenerator.sanitize_input(input("Press enter to return to main screen"))
+            DrinkGenerator.mainScreen(self)
+
+        elif option == '3':
+            print ("Bartender>  Why did you even show up in the first place?")
+                        
             
-        if pf == 'y':
-            mainScreen()
-        elif pf == 'n':
-            print ("Here's your check.")
+
+        
+    def instructions(self):
+        print ("""
+
+Bartender>  Welcome to the Drink Generator! Simply follow the on-screen instructions to create fantastic, unique drinks. Have fun and go f@#$ yourself!
+
+        """)
 
 
-# The RandomNumber class contains functions which are responsible for generating random integers based on list length.
-class RandomNumber:
-    def randName():
-        w1 = random.randint(0,len(adjective)-1)
+        
+    # Generates a drink and then either restarts or exits the program, depending on user action.
+    def playGame(self):
+
+            DrinkGenerator.generateDrink(self)
+
+            pf = DrinkGenerator.sanitize_input(input("\nDo you want to try again? (y/n)"))
+
+            while pf != 'y' and pf != 'n':
+                pf = DrinkGenerator.sanitize_input(input("\nDo you want to try again? (y/n)"))
+                
+            if pf == 'y':
+                DrinkGenerator.mainScreen(self)
+            elif pf == 'n':
+                print ("Bartender>  Here's your check.")
+
+
+    # Functions which are responsible for generating random integers based on list length.
+    def randName(self):
+        w1 = random.randint(0,len(DrinkGenerator.adjective)-1)
         return w1
 
-    def randNoun():
+    def randNoun(self):
 
-        w3 = random.randint(0,len(noun)-1)
+        w3 = random.randint(0,len(DrinkGenerator.noun)-1)
         return w3
 
-    def randDrink():
+    def randDrink(self):
         d1 = random.randint(1,3)
         return d1
 
-    def randBit():
-        b1 = random.randint(0,len(bitters)-1)
+    def randBit(self):
+        b1 = random.randint(0,len(DrinkGenerator.bitters)-1)
         return b1
 
-    def randLiq():
-        l1 = random.randint(0,len(liquor)-1)
+    def randLiq(self):
+        l1 = random.randint(0,len(DrinkGenerator.liquor)-1)
         return l1
 
-    def randEx():
-        i1 = random.randint(0,len(extra)-1)
+    def randEx(self):
+        i1 = random.randint(0,len(DrinkGenerator.extra)-1)
         return i1
         
             
         
-mainScreen()
+DrinkGenerator.mainScreen(0)
 
 
 

@@ -140,7 +140,7 @@ def printStuff(l1,b1,i1):
         
         
         
-def nameComputer():
+def generateDrink():
 
     name1 = RandomNumber.randName()
     name3 = RandomNumber.randNoun()
@@ -238,25 +238,21 @@ def gameOptions():
     print ("|______________________________________|")
 
 
-class Main:
 
-    def __init__(self, start, option):
-        self.start = start
-        self.option = option
-
-
+# Sanitizes user input.
 def sanitize_input(input_string):
     # Allow alphanumeric characters and spaces
     sanitized = re.sub(r'[^a-zA-Z0-9\s]', '', input_string)
     return sanitized
 
 
-                
+
+# Prints intro and handles user input.                
 def mainScreen():
     printIntro()
     
     q = sanitize_input(input("><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><"))
-
+    
     while q != "":
         q = sanitize_input(input("Press enter to play"))
                 
@@ -297,10 +293,10 @@ create fantastic, unique drinks. Have fun and go f@#$ yourself!
 
 
     
-
+# Generates a drink and then either restarts or exits the program, depending on user action.
 def playGame():
 
-        nameComputer()
+        generateDrink()
 
         pf = sanitize_input(input("\nDo you want to try again? (y/n)"))
 
@@ -313,8 +309,8 @@ def playGame():
             print ("Here's your check.")
 
 
+# The RandomNumber class contains functions which are responsible for generating random integers based on list length.
 class RandomNumber:
-
     def randName():
         w1 = random.randint(0,len(adjective)-1)
         return w1
